@@ -4,13 +4,11 @@ import "./App.css";
 import Dropdown from "./components/Dropdown";
 
 function App() {
-  const endpointTipoVeiculo = ["Carros", "Motos", "Caminhões"];
-  const endpointMarcasCarro =
-    "https://parallelum.com.br/fipe/api/v1/carros/marcas";
-  const endpointMarcasMotos =
-    "https://parallelum.com.br/fipe/api/v1/motos/marcas";
-  const endpointMarcasCaminhoes =
-    "https://parallelum.com.br/fipe/api/v1/caminhoes/marcas";
+  const veihcleType = ["Carros", "Motos", "Caminhões"];
+  const endpointMarcasCarro = "https://parallelum.com.br/fipe/api/v1/";
+  const [brandEndpoint, setBrandendpoint] = useState("");
+  const [modelEndpoint, setModelendpoint] = useState("");
+  const [yearEndpoint, setYearendpoint] = useState("");
 
   return (
     <>
@@ -20,7 +18,7 @@ function App() {
         </div>
         <div className="main-content">
           <p className="label-dropdown">Selecione o tipo de veículo</p>
-          <Dropdown endpoint={endpointTipoVeiculo} />
+          <Dropdown endpoint={veihcleType} />
           <p className="label-dropdown">Selecione a marca (fabricante)</p>
           <Dropdown endpoint={endpointTipoVeiculo} />
           <p className="label-dropdown">Selecione o modelo</p>
