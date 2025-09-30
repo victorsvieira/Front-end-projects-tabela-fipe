@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./App.css";
+import Dropdown from "./components/Dropdown";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const endpointTipoVeiculo = ["Carros", "Motos", "Caminhões"];
+  const endpointMarcasCarro =
+    "https://parallelum.com.br/fipe/api/v1/carros/marcas";
+  const endpointMarcasMotos =
+    "https://parallelum.com.br/fipe/api/v1/motos/marcas";
+  const endpointMarcasCaminhoes =
+    "https://parallelum.com.br/fipe/api/v1/caminhoes/marcas";
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <div className="header">
+          <h1 className="title">Projeto: Tabela FIPE</h1>
+        </div>
+        <div className="main-content">
+          <p className="label-dropdown">Selecione o tipo de veículo</p>
+          <Dropdown endpoint={endpointTipoVeiculo} />
+          <p className="label-dropdown">Selecione a marca (fabricante)</p>
+          <Dropdown endpoint={endpointTipoVeiculo} />
+          <p className="label-dropdown">Selecione o modelo</p>
+          <Dropdown endpoint={endpointTipoVeiculo} />
+          <p className="label-dropdown">Selecione o ano</p>
+          <Dropdown endpoint={endpointTipoVeiculo} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
